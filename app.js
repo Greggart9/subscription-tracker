@@ -11,7 +11,7 @@ import arcjetMiddleware from './middlewares/arcjet.middleware.js';
 import workflowRouter from './routes/workflow.routes.js';    
 
 const app = express();
-app.set('trust proxy', 2);
+app.set('trust proxy', 3);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
