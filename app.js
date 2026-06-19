@@ -11,7 +11,7 @@ import arcjetMiddleware from './middlewares/arcjet.middleware.js';
 import workflowRouter from './routes/workflow.routes.js';    
 
 const app = express();
-app.set('trust proxy', 1);
+app.set('trust proxy', 2);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,9 +20,22 @@ app.use(cookieParser());
 app.use(arcjetMiddleware)
 
 
-app.get('/',(req, res) => {
-    res.send({body: "This is Greg's first backend application"});
-
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    name: 'Subscription Tracker API',
+    description:
+      'A REST API for managing users, subscriptions, renewal reminders, and automated workflows.',
+    status: 'Operational',
+    version: '1.0.0',
+    endpoints: {
+      authentication: '/api/v1/auth',
+      users: '/api/v1/users',
+      subscriptions: '/api/v1/subscriptions',
+      workflows: '/api/v1/workflows',
+    },
+    documentation: 'See the project README for API usage and examples.',
+  });
 });
 
 app.use('/api/v1/users', userRouter);

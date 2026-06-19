@@ -2,6 +2,13 @@ import aj from '../config/arcjet.js'
 
 const arcjetMiddleware = async (req, res, next) => {
     try {
+
+        console.log('--- Arcjet Debug ---');
+        console.log('cf-connecting-ip:', req.headers['cf-connecting-ip']);
+        console.log('x-forwarded-for:', req.headers['x-forwarded-for']);
+        console.log('req.ip:', req.ip);
+        console.log('req.ips:', req.ips);
+        console.log('--------------------');
         const decision =  await aj.protect(req, {requested: 1});
 
         if(decision.isDenied()){
