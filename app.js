@@ -12,6 +12,7 @@ import workflowRouter from './routes/workflow.routes.js';
 
 const app = express();
 app.set('trust proxy', 3);
+app.set('json spaces', 2);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
