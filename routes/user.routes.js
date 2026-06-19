@@ -1,6 +1,6 @@
 import {Router } from 'express';
 import { get } from 'mongoose';
-import { getUsers , getUser } from '../controller/user.controller.js';
+import { getUsers , getUser } from '../controllers/user.controller.js';
 import authorize from '../middlewares/auth.middleware.js';
 
 const userRouter = Router();
